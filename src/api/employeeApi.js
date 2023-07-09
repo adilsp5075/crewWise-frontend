@@ -46,3 +46,12 @@ export const deleteEmployee = async (employeeId) => {
     throw new Error(error.response.data.error);
   }
 };
+
+export const promoteEmployee = async (employeeId) => {
+  try {
+    const response = await axios.put(`${BASE_URL}/employees/${employeeId}/promote`);
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response.data.detail);
+  }
+};
